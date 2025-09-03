@@ -52,17 +52,27 @@ jobs:
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ steps.names.outputs.OWNER_LC }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # -------- API IMAGE --------
+      - name: Set up Buildx (container driver)
+        id: bx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          install: true  # macht ihn zum Default für nachfolgende docker buildx Befehle
+
+      - name: Show builders (sanity check)
+        run: docker buildx ls
+
+
+      # --- API ---
       - name: Docker meta (api)
         id: meta_api
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-api
+          images: ghcr.io/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-api
           tags: |
             type=sha
             type=ref,event=branch
@@ -71,22 +81,21 @@ jobs:
       - name: Build & Push (api)
         uses: docker/build-push-action@v6
         with:
+          builder: ${{ steps.bx.outputs.name }}   # <- wichtig
           context: ./src
           file: ./src/BookReview.Api/Dockerfile
           push: true
           platforms: linux/amd64
           tags: ${{ steps.meta_api.outputs.tags }}
           labels: ${{ steps.meta_api.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
-      # -------- WEB IMAGE --------
+
+      # --- WEB ---
       - name: Docker meta (web)
         id: meta_web
         uses: docker/metadata-action@v5
         with:
-          images: |
-            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-web
+          images: ghcr.io/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-web
           tags: |
             type=sha
             type=ref,event=branch
@@ -95,11 +104,11 @@ jobs:
       - name: Build & Push (web)
         uses: docker/build-push-action@v6
         with:
+          builder: ${{ steps.bx.outputs.name }}   # <- wichtig
           context: ./src
           file: ./src/BookReview.Web/Dockerfile
           push: true
           platforms: linux/amd64
           tags: ${{ steps.meta_web.outputs.tags }}
           labels: ${{ steps.meta_web.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+
