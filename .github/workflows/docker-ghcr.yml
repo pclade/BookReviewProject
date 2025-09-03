@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-  packages: write
+  packages: write   # wichtig für GHCR push
 
 concurrency:
   group: ghcr-${{ github.ref }}
@@ -19,37 +19,56 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Derive lowercase owner/name
+      # Diagnose: Zeige Struktur, damit wir sofort sehen, ob Pfade stimmen
+      - name: Show repo tree
+        run: |
+          ls -la
+          echo "----- src -----"
+          ls -la src || true
+          echo "----- API -----"
+          ls -la src/BookReview.Api || true
+          echo "----- WEB -----"
+          ls -la src/BookReview.Web || true
+
+      # Fail-fast: prüfe, ob Dockerfiles existieren
+      - name: Verify Dockerfiles exist
+        run: |
+          test -f src/BookReview.Api/Dockerfile || (echo "API Dockerfile fehlt" && exit 1)
+          test -f src/BookReview.Web/Dockerfile || (echo "WEB Dockerfile fehlt" && exit 1)
+
+      # Owner/Repo korrekt & lowercase
+      - name: Derive lowercase owner and repo
         id: names
         run: |
           echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_OUTPUT
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
-          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_OUTPUT
+          echo "REPO_NAME_LC=${REPO_NAME@L}" >> $GITHUB_OUTPUT
 
-      - name: Log in to GHCR
+      - name: Login to GHCR
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ steps.names.outputs.OWNER_LC }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # --- API IMAGE ---
+      # -------- API IMAGE --------
       - name: Docker meta (api)
         id: meta_api
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME }}-api
+            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-api
           tags: |
             type=sha
             type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Build & push (api)
+      - name: Build & Push (api)
         uses: docker/build-push-action@v6
         with:
           context: ./src
@@ -61,19 +80,19 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # --- WEB IMAGE ---
+      # -------- WEB IMAGE --------
       - name: Docker meta (web)
         id: meta_web
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME }}-web
+            ${{ env.REGISTRY }}/${{ steps.names.outputs.OWNER_LC }}/${{ steps.names.outputs.REPO_NAME_LC }}-web
           tags: |
             type=sha
             type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Build & push (web)
+      - name: Build & Push (web)
         uses: docker/build-push-action@v6
         with:
           context: ./src
