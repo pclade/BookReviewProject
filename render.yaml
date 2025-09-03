@@ -11,7 +11,7 @@ services:
     healthCheckPath: /api/books
 
   - type: web
-    name: bookreview-web
+    name: bookreview-web-q4mp
     env: docker
     plan: free
     region: frankfurt
@@ -25,7 +25,7 @@ services:
       - key: API_HOST
         fromService:
           type: web
-          name: bookreview-api
+          name: bookreview-api-q4mp
           property: host
       - key: API_SCHEME
         value: https
