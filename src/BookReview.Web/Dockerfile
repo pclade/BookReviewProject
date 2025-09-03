@@ -1,16 +1,16 @@
+# --- Build ---
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
-COPY ./BookReview.Web/*.csproj ./BookReview.Web/
-COPY ./BookReview.Api/*.csproj ./BookReview.Api/
-RUN dotnet restore ./BookReview.Web/BookReview.Web.csproj
-COPY ./BookReview.Api/ ./BookReview.Api/
-COPY ./BookReview.Web/ ./BookReview.Web/
-RUN dotnet publish ./BookReview.Web/BookReview.Web.csproj -c Release -o /app/publish
+COPY *.csproj .
+RUN dotnet restore
+COPY . .
+RUN dotnet publish -c Release -o /app/publish
 
+# --- Runtime ---
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://+:8080
-ENV ASPNETCORE_ENVIRONMENT=Docker
+ENV ASPNETCORE_URLS=http://0.0.0.0:8080
+ENV ASPNETCORE_ENVIRONMENT=Production
 COPY --from=build /app/publish .
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "BookReview.Web.dll"]
