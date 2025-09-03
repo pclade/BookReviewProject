@@ -1,0 +1,36 @@
+# render.yaml – Blueprint für BookReview (API + Web), .NET 9, Docker
+services:
+  # --- API ---
+  - type: web
+    name: bookreview-api
+    env: docker
+    plan: free
+    region: frankfurt
+    rootDir: src/BookReview.Api
+    dockerfilePath: src/BookReview.Api/Dockerfile
+    autoDeploy: true
+    healthCheckPath: /api/books
+    # Render erkennt Port aus EXPOSE; zur Sicherheit:
+    # (optional) envVars:
+    #   - key: ASPNETCORE_URLS
+    #     value: http://0.0.0.0:8080
+
+  # --- Web ---
+  - type: web
+    name: bookreview-web
+    env: docker
+    plan: free
+    region: frankfurt
+    rootDir: src/BookReview.Web
+    dockerfilePath: src/BookReview.Web/Dockerfile
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      # ApiBaseUrl dynamisch aus der URL des API-Services befüllen:
+      - key: ApiBaseUrl
+        fromService:
+          type: web
+          name: bookreview-api
+          property: url
