@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Neues Profil",
+    "Projects": [
+      {
+        "Path": "src\\BookReview.Api\\BookReview.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\BookReview.Web\\BookReview.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

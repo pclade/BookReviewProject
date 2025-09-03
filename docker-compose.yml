@@ -1,0 +1,32 @@
+services:
+  api:
+    build:
+      context: ./src
+      dockerfile: BookReview.Api/Dockerfile
+    container_name: bookreview-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "5009:8080"
+    networks:
+      - bookreview-net
+
+  web:
+    build:
+      context: ./src
+      dockerfile: BookReview.Web/Dockerfile
+    container_name: bookreview-web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "5010:8080"
+    depends_on:
+      - api
+    networks:
+      - bookreview-net
+
+networks:
+  bookreview-net:
+    driver: bridge

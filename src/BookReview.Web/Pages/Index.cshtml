@@ -1,0 +1,17 @@
+@page
+@model BookReview.Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Book Review App";
+}
+<h2>Book List</h2>
+<form method="post" asp-page-handler="AddBook">
+    <input type="text" name="Title" placeholder="Book title" required />
+    <input type="text" name="Author" placeholder="Author" required />
+    <button type="submit">Add</button>
+</form>
+<ul>
+@foreach (var book in Model.Books)
+{
+    <li><b>@book.Title</b> by @book.Author</li>
+}
+</ul>

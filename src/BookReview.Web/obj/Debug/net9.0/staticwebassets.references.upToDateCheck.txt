@@ -1,0 +1,4 @@
+C:\Users\Senol\OneDrive - DynamIT Solutions GmbH\040 IFA\001 Lehrgaenge\HF-Semester-NEU\OOPV.TA1A\BookReviewProject\src\BookReview.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Senol\OneDrive - DynamIT Solutions GmbH\040 IFA\001 Lehrgaenge\HF-Semester-NEU\OOPV.TA1A\BookReviewProject\src\BookReview.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Senol\OneDrive - DynamIT Solutions GmbH\040 IFA\001 Lehrgaenge\HF-Semester-NEU\OOPV.TA1A\BookReviewProject\src\BookReview.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Senol\OneDrive - DynamIT Solutions GmbH\040 IFA\001 Lehrgaenge\HF-Semester-NEU\OOPV.TA1A\BookReviewProject\src\BookReview.Api\obj\Debug\net9.0\staticwebassets.build.json

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2222222-2222-2222-2222-222222222222}|src\\BookReview.Web\\BookReview.Web.csproj|c:\\users\\senol\\onedrive - dynamit solutions gmbh\\040 ifa\\001 lehrgaenge\\hf-semester-neu\\oopv.ta1a\\bookreviewproject\\src\\bookreview.web\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2222222-2222-2222-2222-222222222222}|src\\BookReview.Web\\BookReview.Web.csproj|solutionrelative:src\\bookreview.web\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2222222-2222-2222-2222-222222222222}|src\\BookReview.Web\\BookReview.Web.csproj|c:\\users\\senol\\onedrive - dynamit solutions gmbh\\040 ifa\\001 lehrgaenge\\hf-semester-neu\\oopv.ta1a\\bookreviewproject\\src\\bookreview.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B2222222-2222-2222-2222-222222222222}|src\\BookReview.Web\\BookReview.Web.csproj|solutionrelative:src\\bookreview.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1111111-1111-1111-1111-111111111111}|src\\BookReview.Api\\BookReview.Api.csproj|c:\\users\\senol\\onedrive - dynamit solutions gmbh\\040 ifa\\001 lehrgaenge\\hf-semester-neu\\oopv.ta1a\\bookreviewproject\\src\\bookreview.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B1111111-1111-1111-1111-111111111111}|src\\BookReview.Api\\BookReview.Api.csproj|solutionrelative:src\\bookreview.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1111111-1111-1111-1111-111111111111}|src\\BookReview.Api\\BookReview.Api.csproj|c:\\users\\senol\\onedrive - dynamit solutions gmbh\\040 ifa\\001 lehrgaenge\\hf-semester-neu\\oopv.ta1a\\bookreviewproject\\src\\bookreview.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1111111-1111-1111-1111-111111111111}|src\\BookReview.Api\\BookReview.Api.csproj|solutionrelative:src\\bookreview.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Web\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "src\\BookReview.Web\\Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Web\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "src\\BookReview.Web\\Pages\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-03T05:24:33.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Api\\Program.cs",
+              "RelativeDocumentMoniker": "src\\BookReview.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Api\\Program.cs",
+              "RelativeToolTip": "src\\BookReview.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T05:05:56.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Web\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\BookReview.Web\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Web\\appsettings.Development.json",
+              "RelativeToolTip": "src\\BookReview.Web\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T04:59:01.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\BookReview.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Senol\\OneDrive - DynamIT Solutions GmbH\\040 IFA\\001 Lehrgaenge\\HF-Semester-NEU\\OOPV.TA1A\\BookReviewProject\\src\\BookReview.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\BookReview.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T04:58:12.59Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
